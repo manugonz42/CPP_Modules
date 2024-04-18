@@ -9,5 +9,6 @@ class PhoneBook{
         ~PhoneBook();
         void    welcome(void) const;
         void    add_contact(void);
+        int     is_valid_index(std::string input);
         void    search(void) const;
 };
