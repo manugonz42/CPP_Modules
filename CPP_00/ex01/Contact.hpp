@@ -17,6 +17,7 @@ private:
 public:
     Contact(/* args */);
     ~Contact();
+    void        add_index(int index);
     void        add_field(std::string field, std::string content);
     void        add_fname(std::string fname);
     void        add_lname(std::string lname);

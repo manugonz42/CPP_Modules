@@ -1,6 +1,6 @@
 #include "PhoneBook.hpp"
 
-int main(int argc, char const *argv[]){  
+int main(void){  
     PhoneBook   book;
     std::string input = "";
     book.welcome();
@@ -9,9 +9,10 @@ int main(int argc, char const *argv[]){
             book.add_contact();
         else if (input.compare("SEARCH") == 0)
             book.search();
+        std::cin.clear();
         std::cout << "> " << std::flush;
-        std::cin >> input;
+        std::getline(std::cin, input);
     }
-
+    std::cout << "You have closed succesfully the best PhoneBook of the history." << std::endl;
     return 0;
 }
