@@ -1,4 +1,5 @@
 #include "Harl.hpp"
+
 int main(int argc, char const *argv[])
 {
     Harl harl;

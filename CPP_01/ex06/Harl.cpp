@@ -19,13 +19,29 @@ void    Harl::error(){
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 void    Harl::complain(std::string level){
-    void    (Harl::*functions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    for (int i = 0; i < 4; i++){
-        if (level == levels[i]){
-            (this->*functions[i])();
-            return ;    
-        }
+    std::size_t i;
+    for (i = 0; i < 4; i++){
+        if (level == levels[i])
+            break ;
     }
-    std::cout << "Invalid level." << std::endl;
+    switch (i)
+    {
+        case 0:
+            this->debug();
+            /* FALLTHROUGH */
+        case 1:
+            this->info();
+            /* FALLTHROUGH */
+        case 2:
+            this->warning();
+            /* FALLTHROUGH */
+        case 3:
+            this->error();
+            break;
+
+        default:
+		    std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+            break;
+    }
 }
