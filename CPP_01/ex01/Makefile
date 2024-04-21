@@ -1,6 +1,6 @@
-NAME = PhoneBook
+NAME = Horde
 
-SRCS = PhoneBook.cpp main.cpp Contact.cpp
+SRCS = newZombie.cpp main.cpp Zombie.cpp randomChump.cpp zombieHorde.cpp
 OBJS := $(SRCS:%.cpp=%.o)
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98

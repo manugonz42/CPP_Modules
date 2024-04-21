@@ -1,6 +1,6 @@
-NAME = PhoneBook
+NAME = Brains
 
-SRCS = PhoneBook.cpp main.cpp Contact.cpp
+SRCS = main.cpp
 OBJS := $(SRCS:%.cpp=%.o)
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98

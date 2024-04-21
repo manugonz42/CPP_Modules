@@ -21,25 +21,20 @@ std::string PhoneBook::read_input(void) const{
     return input;
 }
 
-int stringToInt(const std::string& str) {
+int PhoneBook::stringToInt(const std::string& str) const{
     int result = 0;
-    int sign = 1; // Signo del número, positivo por defecto
+    int sign = 1;
     size_t i = 0;
 
-    // Ignorar espacios en blanco al inicio de la cadena
     while (i < str.length() && isspace(str[i])) {
         ++i;
     }
-
-    // Manejar el signo si lo hay
     if (i < str.length() && (str[i] == '+' || str[i] == '-')) {
         sign = (str[i++] == '-') ? -1 : 1;
     }
-    // Convertir caracteres a números
     while (i < str.length() && isdigit(str[i])) {
         result = result * 10 + (str[i++] - '0');
     }
-
     return result * sign;
 }
 
@@ -72,7 +67,7 @@ void    PhoneBook::add_contact(void){
     prompt();
 }
 
-int    PhoneBook::is_valid_index(std::string input) const{
+int    PhoneBook::is_valid_index(const std::string& input) const{
     int in;
     if (input == "EXIT")
         exit_f();
