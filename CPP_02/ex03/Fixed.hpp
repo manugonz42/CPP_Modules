@@ -1,5 +1,8 @@
-#include <iostream>
-#include <string>
+#ifndef FIXED_HPP
+# define FIXED_HPP
+
+# include <iostream>
+# include <string>
 
 class	Fixed{
 	private:
@@ -42,3 +45,4 @@ class	Fixed{
 };
 
 std::ostream& operator<<(std::ostream& o, const Fixed& f);
+#endif

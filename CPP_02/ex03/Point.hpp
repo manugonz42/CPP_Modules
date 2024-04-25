@@ -1,4 +1,6 @@
-#include "Fixed.hpp"
+#ifndef POINT_HPP
+# define POINT_HPP
+# include "Fixed.hpp"
 
 class Point{
     private:
@@ -11,7 +13,7 @@ class Point{
         Point& operator=(const Point& other);
         ~Point();
 
-        void    getX(void) const;
-        void    getY(void) const;
-        bool    bsp( Point const a, Point const b, Point const c, Point const point);
+        const Fixed&  getX(void) const;
+        const Fixed&  getY(void) const;
 };
+#endif

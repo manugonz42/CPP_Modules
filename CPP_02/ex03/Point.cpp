@@ -7,10 +7,19 @@ Point::Point(const Fixed& other){
 }
 Point::Point(const Fixed& x, const Fixed& y) : _x(x), _y(y){
 }
-Point&  Point::operator=( const Point &rhs ) {
+Point&  Point::operator=( const Point &other) {
+    if (this != &other)
+        return *this;
     return *this;
 }
 Point::~Point(){
+}
+
+const Fixed&   Point::getX(void) const{
+    return (this->_x);
+}
+const Fixed&   Point::getY(void) const{
+    return (this->_y);
 }
 
 /*
