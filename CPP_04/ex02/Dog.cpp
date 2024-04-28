@@ -9,7 +9,7 @@ Dog::Dog(std::string type) : brain(new Brain()){
 	std::cout << "Dog type constructor called" << std::endl;
 	type = type;
 }
-Dog::Dog(const Dog& other) : Animal(), brain(new Brain(*other.brain)){
+Dog::Dog(const Dog& other) : AAnimal(), brain(new Brain(*other.brain)){
 	std::cout << "Dog copy constructor called" << std::endl;
 	type = other.type;
 }

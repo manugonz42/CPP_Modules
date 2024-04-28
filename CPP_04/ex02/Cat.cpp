@@ -9,7 +9,7 @@ Cat::Cat(std::string type) : brain(new Brain()){
 	std::cout << "Cat type constructor called" << std::endl;
 	type = type;
 }
-Cat::Cat(const Cat& other) : Animal(), brain(new Brain(*other.brain)){
+Cat::Cat(const Cat& other) : AAnimal(), brain(new Brain(*other.brain)){
 	std::cout << "Cat copy constructor called" << std::endl;
 	type = other.type;
 }

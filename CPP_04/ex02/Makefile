@@ -1,6 +1,6 @@
-NAME = Animal
+NAME = AAnimal
 
-SRCS = Animal.cpp Dog.cpp Cat.cpp main.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS = AAnimal.cpp Dog.cpp Cat.cpp main.cpp Brain.cpp
 OBJS := $(SRCS:%.cpp=%.o)
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
