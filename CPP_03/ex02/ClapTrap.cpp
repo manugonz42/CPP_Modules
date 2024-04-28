@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : name(""),  hitPoints(10), energyPoints(10), attackDamage(0) {
+ClapTrap::ClapTrap(void) : name("no_name"),  hitPoints(10), energyPoints(10), attackDamage(0) {
     std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
@@ -64,7 +64,7 @@ int ClapTrap::getAttackDamage(void) const{
     return attackDamage;
 }
 
-void    ClapTrap::setHitpoints(int newHitPoints){
+void    ClapTrap::setHitPoints(int newHitPoints){
     hitPoints = newHitPoints;
 }
 void    ClapTrap::setEnergyPoints(int newEnergyPoints){

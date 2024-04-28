@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void) : name(""),  hitPoints(10), energyPoints(10), attackDamage(0) {
+ClapTrap::ClapTrap(void) : name("no_name"),  hitPoints(10), energyPoints(10), attackDamage(0) {
     std::cout << "ClapTrap Default constructor called" << std::endl;
-}
-ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hitPoints(other.hitPoints), energyPoints(other.energyPoints), attackDamage(other.attackDamage){
-    std::cout << "ClapTrap Copy constructor called" << std::endl;
 }
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0){
     std::cout << "ClapTrap Name constructor called" << std::endl;
+}
+ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hitPoints(other.hitPoints), energyPoints(other.energyPoints), attackDamage(other.attackDamage){
+    std::cout << "ClapTrap Copy constructor called" << std::endl;
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap &other) {
     std::cout << "ClapTrap Copy assignment operator called" << std::endl;
@@ -64,7 +64,7 @@ int ClapTrap::getAttackDamage(void) const{
     return attackDamage;
 }
 
-void    ClapTrap::setHitpoints(int newHitPoints){
+void    ClapTrap::setHitPoints(int newHitPoints){
     hitPoints = newHitPoints;
 }
 void    ClapTrap::setEnergyPoints(int newEnergyPoints){

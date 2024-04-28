@@ -2,13 +2,13 @@
 
 ScavTrap::ScavTrap() : ClapTrap(){
     std::cout << "ScavTrap default constructor called" << std::endl;
-    setHitpoints(100);
+    setHitPoints(100);
     setEnergyPoints(50);
     setAttackDamage(20);
 }
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
     std::cout << "ScavTrap name constructor called." << std::endl;
-    setHitpoints(100);
+    setHitPoints(100);
     setEnergyPoints(50);
     setAttackDamage(20);
 }
@@ -36,4 +36,11 @@ void    ScavTrap::guardGate(void){
     if (!this->checkStatus())
         return ;
     std::cout << "ScavTrap " << getName() << " is now in Gatekeeper mode." << std::endl;
+}
+void    ScavTrap::setEnergyPoints(int newEnergyPoints){
+    this->energyPoints = newEnergyPoints;
+    ClapTrap::setEnergyPoints(this->energyPoints);
+}
+int     ScavTrap::getEnergyPoints(void) const{
+    return this->energyPoints;
 }

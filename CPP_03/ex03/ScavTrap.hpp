@@ -4,6 +4,7 @@
 
 class ScavTrap : virtual public ClapTrap{
     private:
+        int     energyPoints;
     public:
         ScavTrap();
         ScavTrap(std::string name);
@@ -13,6 +14,10 @@ class ScavTrap : virtual public ClapTrap{
 
         void    attack(std::string target);
         void    guardGate();
+        void    setEnergyPoints(int newEnergyPoints);
+        int     getEnergyPoints(void) const;
+
+
 };
 
 #endif
