@@ -6,10 +6,10 @@ WrongAnimal::WrongAnimal() : type("NONE") {
 WrongAnimal::WrongAnimal(std::string type) : type(type){
 	std::cout << "WrongAnimal type constructor called" << std::endl;
 }
-WrongAnimal::WrongAnimal(WrongAnimal& other) : type(other.getType()){
+WrongAnimal::WrongAnimal(const WrongAnimal& other) : type(other.getType()){
 	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
-WrongAnimal& WrongAnimal::operator=(WrongAnimal& other){
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other){
 	std::cout << "WrongAnimal copy assignment operator called" << std::endl;
 	if (this != &other){
 		this->type = other.getType();

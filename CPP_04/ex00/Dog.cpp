@@ -4,19 +4,16 @@ Dog::Dog(){
 	std::cout << "Dog Default constructor called" << std::endl;
 	type = "Dog";
 };
-Dog::Dog(std::string type){
+Dog::Dog(std::string type) : Animal(type) {
 	std::cout << "Dog type constructor called" << std::endl;
-	type = type;
 }
-Dog::Dog(Dog& other) : Animal(){
+Dog::Dog(const Dog& other) : Animal(other){
 	std::cout << "Dog copy constructor called" << std::endl;
-	type = other.getType();
 }
-Dog& Dog::operator=(Dog& other){
+Dog& Dog::operator=(const Dog& other){
 	std::cout << "Dog copy assignment operator called" << std::endl;
-	if (this != &other){
-		this->type = other.getType();
-	}
+	if (this != &other)
+		Animal::operator=(other);
 	return *this;
 }
 Dog::~Dog(){

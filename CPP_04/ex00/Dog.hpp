@@ -6,8 +6,8 @@ class Dog : public Animal{
 	public:
 		Dog();
 		Dog(std::string name);
-		Dog(Dog& other);
-		Dog& operator=(Dog& other);
+		Dog(const Dog& other);
+		Dog& operator=(const Dog& other);
 		~Dog();
 		
 		void makeSound() const;

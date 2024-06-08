@@ -6,10 +6,10 @@ Animal::Animal() : type("NONE") {
 Animal::Animal(std::string type) : type(type){
 	std::cout << "Animal type constructor called" << std::endl;
 }
-Animal::Animal(Animal& other) : type(other.getType()){
+Animal::Animal(const Animal& other) : type(other.getType()){
 	std::cout << "Animal copy constructor called" << std::endl;
 }
-Animal& Animal::operator=(Animal& other){
+Animal& Animal::operator=(const Animal& other){
 	std::cout << "Animal copy assignment operator called" << std::endl;
 	if (this != &other){
 		this->type = other.getType();

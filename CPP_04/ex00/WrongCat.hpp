@@ -6,8 +6,8 @@ class WrongCat : public WrongAnimal{
 	public:
 		WrongCat();
 		WrongCat(std::string name);
-		WrongCat(WrongCat& other);
-		WrongCat& operator=(WrongCat& other);
+		WrongCat(const WrongCat& other);
+		WrongCat& operator=(const WrongCat& other);
 		~WrongCat();
 
 		//void makeSound() const;
