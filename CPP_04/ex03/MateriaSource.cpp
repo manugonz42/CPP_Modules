@@ -28,10 +28,22 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &other)
 
 MateriaSource::~MateriaSource()
 {
-	for (size_t i = 0; i < 4; i++){
-		if (learned[i])
-			delete learned[i];
-	}
+	bool    check;
+    for (int i = 0; i < 4; i++){
+        check = false;
+        if (learned[i]){
+            if (i > 0){
+                for (int j = 0; j < i; j++)
+                    if (learned[i] == learned[j]){
+                        check = true;
+                        break ;
+                    }
+            }
+            if (check)
+                continue;
+            delete learned[i];
+        }
+    }
 }
 
 void	MateriaSource::learnMateria(AMateria *m)

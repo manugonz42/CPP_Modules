@@ -23,11 +23,21 @@ Character& Character::operator=(const Character& other){
     return *this;
 }
 Character::~Character() {
-    if (!inventory)
-        return ;
+    bool    check;
     for (int i = 0; i < 4; i++){
-        if (inventory[i])
+        check = false;
+        if (inventory[i]){
+            if (i > 0){
+                for (int j = 0; j < i; j++)
+                    if (inventory[i] == inventory[j]){
+                        check = true;
+                        break ;
+                    }
+            }
+            if (check)
+                continue;
             delete inventory[i];
+        }
     }
 }
 std::string const & Character::getName() const { return name; }
@@ -42,11 +52,17 @@ void Character::equip(AMateria* m) {
 }
 void Character::unequip(int idx){
     if (idx < 0 || idx > 3)
-        return ;
-    if (inventory[idx])
+        cout << "No slot " << idx << endl;
+    else if (inventory[idx])
         inventory[idx] = NULL;
+    else
+        cout << "Nothing equiped in slot " << idx << endl;
 }
 void Character::use(int idx, ICharacter& target){
-    if (inventory[idx])
+    if (idx < 0 || idx > 3)
+        cout << "No slot " << idx << endl;
+    else if (inventory[idx])
         inventory[idx]->use(target);
+    else
+        cout << "Nothing equiped in slot " << idx << endl;
 }
