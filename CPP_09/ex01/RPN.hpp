@@ -6,22 +6,22 @@
 #include <iterator>
 #include <sstream>
 #include <fstream>
-#include <map>
+#include <stack>
 #include <iomanip>
 
 using std::cout;
 using std::endl;
 using std::string;
 
-class BitcoinExchange {
+class RPN {
     private:
-        std::map < unsigned long, unsigned int >    base;
+        std::stack < float >    base;
         void    saveBase();
-        BitcoinExchange(const BitcoinExchange& other);
-        BitcoinExchange& operator=(const BitcoinExchange& other);
+        RPN(const RPN& other);
+        RPN& operator=(const RPN& other);
 
     public:
-        BitcoinExchange();
-        ~BitcoinExchange();
+        RPN();
+        ~RPN();
         
 };
