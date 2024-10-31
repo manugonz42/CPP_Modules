@@ -1,10 +1,12 @@
-BitcoinExchange::BitcoinExchange() : type("NONE") {
+#include "BitcoinExchange.hpp"
+
+BitcoinExchange::BitcoinExchange() {
 };
-BitcoinExchange::BitcoinExchange(BitcoinExchange& other) : type(other.base()){
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : base(other.base){
 }
-BitcoinExchange& BitcoinExchange::operator=(BitcoinExchange& other){
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other){
 	if (this != &other){
-		this->base = other.base();
+		this->base = other.base;
 	}
 	return *this;
 }
