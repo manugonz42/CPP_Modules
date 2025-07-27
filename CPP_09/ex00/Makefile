@@ -17,7 +17,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCDIR = .
 OBJDIR = obj
 
-SOURCES = main_class.cpp BitcoinExchange.cpp
+SOURCES = main.cpp BitcoinExchange.cpp
 OBJECTS = $(SOURCES:%.cpp=$(OBJDIR)/%.o)
 
 # Colors for output

@@ -8,7 +8,18 @@ float string_to_float(const std::string str) {
 }
 
 int err(string s){
-    cout << "Error " << s << endl;
+    if (s == "args")
+        std::cerr << "Error: Invalid arguments" << std::endl;
+    else if (s == "operands")
+        std::cerr << "Error: Not enough operands" << std::endl;
+    else if (s == "division")
+        std::cerr << "Error: Division by zero" << std::endl;
+    else if (s == "operator")
+        std::cerr << "Error: Invalid operator" << std::endl;
+    else if (s == "expression")
+        std::cerr << "Error: Invalid expression" << std::endl;
+    else
+        std::cerr << "Error" << std::endl;
     return 1;
 }
 
@@ -41,7 +52,7 @@ int rpn(string s){
             stk.push(string_to_float(s.substr(i, 1)));
         else{
             if (stk.size() < 2)
-                return err("2");
+                return err("operands");
             b = stk.top();
             stk.pop();
             a = stk.top();
@@ -58,25 +69,23 @@ int rpn(string s){
                     break;
                 case '/':
                     if (b == 0)
-                        return err("3");
+                        return err("division");
                     r = a / b;
                     break;
                 default:
-                    return err("4");
+                    return err("operator");
             }
-            cout << "a " << a << " " << s[i] << " b " << b << " = " << r << endl; 
             stk.push(r);
         }
     }
     if (stk.size() != 1)
-        return err("5");
+        return err("expression");
     cout << stk.top() << endl;
     return 0;
 }
 int main(int argc, char **argv){
     if (argc != 2 || !valid_args(argv[1])){        
-        return err("1");
+        return err("args");
     }
     return rpn(argv[1]);
-    return 0;
 }
