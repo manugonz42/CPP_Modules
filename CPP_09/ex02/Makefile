@@ -1,4 +1,4 @@
-NAME = btc
+NAME = PmergeMe
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
@@ -6,7 +6,7 @@ RM = rm -f
 SRCDIR = .
 OBJDIR = obj
 
-SOURCES = main.cpp BitcoinExchange.cpp
+SOURCES = main.cpp PmergeMe.cpp
 OBJECTS = $(SOURCES:%.cpp=$(OBJDIR)/%.o)
 
 # Colors for pretty output
@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	@echo "$(CYAN)$(BOLD)[LINKING]$(RESET) Creating $(NAME)..."
 	@$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(NAME)
-	@echo "$(GREEN)$(BOLD)[SUCCESS]$(RESET) $(NAME) compiled successfully! ₿"
+	@echo "$(GREEN)$(BOLD)[SUCCESS]$(RESET) $(NAME) compiled successfully! ⚡"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(OBJDIR)
@@ -41,7 +41,6 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	@echo "$(BLUE)$(BOLD)[TEST]$(RESET) Running Bitcoin Exchange tests..."
-	@bash tester_btc.sh
+	@./tester_PMergeMe.sh
 
 .PHONY: all clean fclean re test

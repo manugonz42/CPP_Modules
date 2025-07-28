@@ -1,20 +1,47 @@
 NAME = RPN
-SRCS = main.cpp RPN.cpp
-OBJS := $(SRCS:%.cpp=%.o)
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+RM = rm -f
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+SRCDIR = .
+OBJDIR = obj
+
+SOURCES = main.cpp RPN.cpp
+OBJECTS = $(SOURCES:%.cpp=$(OBJDIR)/%.o)
+
+# Colors for pretty output
+GREEN = \033[92m
+YELLOW = \033[93m
+RED = \033[91m
+BLUE = \033[94m
+CYAN = \033[96m
+RESET = \033[0m
+BOLD = \033[1m
 
 all: $(NAME)
 
-$(NAME) : $(OBJS)
-	c++ $(CPPFLAGS) $(OBJS) -o $@
+$(NAME): $(OBJECTS)
+	@echo "$(CYAN)$(BOLD)[LINKING]$(RESET) Creating $(NAME)..."
+	@$(CXX) $(CXXFLAGS) $(OBJECTS) -o $(NAME)
+	@echo "$(GREEN)$(BOLD)[SUCCESS]$(RESET) $(NAME) compiled successfully! 🧮"
 
-clean :
-	rm -f $(OBJS)
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@mkdir -p $(OBJDIR)
+	@echo "$(YELLOW)[COMPILE]$(RESET) $< → $@"
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
-fclean : clean
-	rm -f $(NAME)
+clean:
+	@echo "$(RED)[CLEAN]$(RESET) Removing object files..."
+	@$(RM) -r $(OBJDIR)
 
-re : fclean all
+fclean: clean
+	@echo "$(RED)[FCLEAN]$(RESET) Removing $(NAME)..."
+	@$(RM) $(NAME)
 
-.PHONY : all clean fclean re
+re: fclean all
+
+test: $(NAME)
+	@echo "$(BLUE)$(BOLD)[TEST]$(RESET) Running RPN Calculator tests..."
+	@bash tester_rpn.sh
+
+.PHONY: all clean fclean re test
